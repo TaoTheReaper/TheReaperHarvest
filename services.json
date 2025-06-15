@@ -1,0 +1,123 @@
+[
+    {
+        "name": "reddit",
+        "url": "https://www.reddit.com/api/password.json",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": true
+    },
+    {
+        "name": "discord",
+        "url": "https://discord.com/api/v9/auth/forgot",
+        "method": "POST",
+        "fields": {
+            "login": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": true
+    },
+    {
+        "name": "instagram",
+        "url": "https://www.instagram.com/accounts/account_recovery_send_ajax/",
+        "method": "POST",
+        "fields": {
+            "email_or_username": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "vinted",
+        "url": "https://www.vinted.it/member/forgot_password",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "spotify",
+        "url": "https://www.spotify.com/it/xhr/json/isEmailAvailable.php",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "netflix",
+        "url": "https://www.netflix.com/LoginHelp",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>",
+            "reason": "forgotEmail"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "amazon",
+        "url": "https://www.amazon.com/ap/forgotpassword",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "patreon",
+        "url": "https://www.patreon.com/forgot-password",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "paypal",
+        "url": "https://www.paypal.com/authflow/password-recovery",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": true
+    },
+    {
+        "name": "vsco",
+        "url": "https://vsco.co/api/v3.0/auth/password-reset",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    }
+]
