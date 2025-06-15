@@ -1,25 +1,25 @@
 [
     {
-        "name": "vinted",
-        "url": "https://www.vinted.it/member/forgot_password",
+        "name": "reddit",
+        "url": "https://www.reddit.com/api/password.json",
         "method": "POST",
         "fields": { "email": "<EMAIL>" },
         "headers": { "User-Agent": "Mozilla/5.0" },
         "captcha": false
     },
     {
-        "name": "amazon",
-        "url": "https://www.amazon.com/ap/forgotpassword",
+        "name": "spotify",
+        "url": "https://www.spotify.com/it/xhr/json/isEmailAvailable.php",
         "method": "POST",
         "fields": { "email": "<EMAIL>" },
         "headers": { "User-Agent": "Mozilla/5.0" },
         "captcha": false
     },
     {
-        "name": "vsco",
-        "url": "https://vsco.co/api/v3.0/auth/password-reset",
+        "name": "netflix",
+        "url": "https://www.netflix.com/LoginHelp",
         "method": "POST",
-        "fields": { "email": "<EMAIL>" },
+        "fields": { "email": "<EMAIL>", "reason": "forgotEmail" },
         "headers": { "User-Agent": "Mozilla/5.0" },
         "captcha": false
     }
