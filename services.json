@@ -36,31 +36,6 @@
         "captcha": false
     },
     {
-        "name": "canva",
-        "url": "https://www.canva.com/api/v1/users/forgot-password",
-        "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
-        "captcha": false
-    },
-    {
-        "name": "dropbox",
-        "url": "https://www.dropbox.com/forgot",
-        "method": "POST",
-        "fields": {
-            "login_email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0",
-            "Referer": "https://www.dropbox.com/forgot"
-        },
-        "captcha": false
-    },
-    {
         "name": "ebay",
         "url": "https://signin.ebay.com/ws/eBayISAPI.dll?ForgotUserId",
         "method": "POST",
@@ -69,19 +44,6 @@
         },
         "headers": {
             "User-Agent": "Mozilla/5.0"
-        },
-        "captcha": false
-    },
-    {
-        "name": "airbnb",
-        "url": "https://www.airbnb.com/forgot_password",
-        "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0",
-            "Referer": "https://www.airbnb.com/forgot_password"
         },
         "captcha": false
     }
