@@ -3,57 +3,39 @@
         "name": "vinted",
         "url": "https://www.vinted.it/member/forgot_password",
         "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
+        "fields": { "email": "<EMAIL>" },
+        "headers": { "User-Agent": "Mozilla/5.0" },
         "captcha": false
     },
     {
         "name": "amazon",
         "url": "https://www.amazon.com/ap/forgotpassword",
         "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
+        "fields": { "email": "<EMAIL>" },
+        "headers": { "User-Agent": "Mozilla/5.0" },
         "captcha": false
     },
     {
         "name": "vsco",
         "url": "https://vsco.co/api/v3.0/auth/password-reset",
         "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
+        "fields": { "email": "<EMAIL>" },
+        "headers": { "User-Agent": "Mozilla/5.0" },
         "captcha": false
     },
     {
         "name": "adobe",
         "url": "https://account.adobe.com/forgotPassword",
         "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
+        "fields": { "email": "<EMAIL>" },
+        "headers": { "User-Agent": "Mozilla/5.0" },
         "captcha": false
     },
     {
         "name": "booking",
         "url": "https://secure.booking.com/reset-password",
         "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
+        "fields": { "email": "<EMAIL>" },
         "headers": {
             "User-Agent": "Mozilla/5.0",
             "Content-Type": "application/x-www-form-urlencoded"
@@ -64,12 +46,48 @@
         "name": "snapchat",
         "url": "https://accounts.snapchat.com/accounts/merlin/login/forgot-password",
         "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
+        "fields": { "email": "<EMAIL>" },
         "headers": {
             "User-Agent": "Mozilla/5.0",
             "Content-Type": "application/json"
+        },
+        "captcha": false
+    },
+    {
+        "name": "dropbox",
+        "url": "https://www.dropbox.com/forgot",
+        "method": "POST",
+        "fields": { "login_email": "<EMAIL>" },
+        "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://www.dropbox.com/forgot"
+        },
+        "captcha": false
+    },
+    {
+        "name": "tumblr",
+        "url": "https://www.tumblr.com/forgot_password",
+        "method": "POST",
+        "fields": { "determine_email": "<EMAIL>" },
+        "headers": { "User-Agent": "Mozilla/5.0" },
+        "captcha": false
+    },
+    {
+        "name": "coinbase",
+        "url": "https://www.coinbase.com/password_reset",
+        "method": "POST",
+        "fields": { "email": "<EMAIL>" },
+        "headers": { "User-Agent": "Mozilla/5.0" },
+        "captcha": false
+    },
+    {
+        "name": "zoho",
+        "url": "https://accounts.zoho.com/accounts/sendpass",
+        "method": "POST",
+        "fields": { "EMAIL_ID": "<EMAIL>" },
+        "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Content-Type": "application/x-www-form-urlencoded"
         },
         "captcha": false
     }
