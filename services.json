@@ -1,27 +1,32 @@
 [
-    {
-        "name": "reddit",
-        "url": "https://www.reddit.com/api/password.json",
-        "method": "POST",
-        "fields": { "email": "<EMAIL>" },
-        "headers": { "User-Agent": "Mozilla/5.0" },
-        "captcha": false
+  {
+    "name": "reddit",
+    "verifiable": true,
+    "url": "https://www.reddit.com/api/password.json",
+    "method": "POST",
+    "fields": { "email": "<EMAIL>" },
+    "headers": { "User-Agent": "Mozilla/5.0" },
+    "captcha": false
+  },
+  {
+    "name": "spotify",
+    "verifiable": false,
+    "url": "https://www.spotify.com/it/xhr/json/isEmailAvailable.php",
+    "method": "POST",
+    "fields": { "email": "<EMAIL>" },
+    "headers": { "User-Agent": "Mozilla/5.0" },
+    "captcha": false
+  },
+  {
+    "name": "netflix",
+    "verifiable": false,
+    "url": "https://www.netflix.com/LoginHelp",
+    "method": "POST",
+    "fields": {
+      "email": "<EMAIL>",
+      "reason": "forgotEmail"
     },
-    {
-        "name": "spotify",
-        "url": "https://www.spotify.com/it/xhr/json/isEmailAvailable.php",
-        "method": "POST",
-        "fields": { "email": "<EMAIL>" },
-        "headers": { "User-Agent": "Mozilla/5.0" },
-        "captcha": false
-    },
-    {
-        "name": "netflix",
-        "url": "https://www.netflix.com/LoginHelp",
-        "method": "POST",
-        "fields": { "email": "<EMAIL>", "reason": "forgotEmail" },
-        "headers": { "User-Agent": "Mozilla/5.0" },
-        "captcha": false,
-        "note": "Netflix always returns 200 — cannot verify existence with certainty."
-    }
+    "headers": { "User-Agent": "Mozilla/5.0" },
+    "captcha": false
+  }
 ]
