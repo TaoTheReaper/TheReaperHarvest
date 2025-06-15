@@ -1,32 +1,75 @@
 [
   {
-    "name": "reddit",
-    "verifiable": true,
-    "url": "https://www.reddit.com/api/password.json",
-    "method": "POST",
-    "fields": { "email": "<EMAIL>" },
-    "headers": { "User-Agent": "Mozilla/5.0" },
-    "captcha": false
-  },
-  {
     "name": "spotify",
-    "verifiable": false,
     "url": "https://www.spotify.com/it/xhr/json/isEmailAvailable.php",
     "method": "POST",
-    "fields": { "email": "<EMAIL>" },
-    "headers": { "User-Agent": "Mozilla/5.0" },
+    "fields": {
+      "email": "<EMAIL>"
+    },
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
     "captcha": false
   },
   {
     "name": "netflix",
-    "verifiable": false,
     "url": "https://www.netflix.com/LoginHelp",
     "method": "POST",
     "fields": {
       "email": "<EMAIL>",
       "reason": "forgotEmail"
     },
-    "headers": { "User-Agent": "Mozilla/5.0" },
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "captcha": false
+  },
+  {
+    "name": "reddit",
+    "url": "https://www.reddit.com/api/password.json",
+    "method": "POST",
+    "fields": {
+      "email": "<EMAIL>"
+    },
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "captcha": false
+  },
+  {
+    "name": "canva",
+    "url": "https://www.canva.com/account/password-reset/",
+    "method": "POST",
+    "fields": {
+      "email": "<EMAIL>"
+    },
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "captcha": false
+  },
+  {
+    "name": "twitch",
+    "url": "https://www.twitch.tv/user/account-recovery",
+    "method": "POST",
+    "fields": {
+      "email": "<EMAIL>"
+    },
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
+    "captcha": false
+  },
+  {
+    "name": "vimeo",
+    "url": "https://vimeo.com/forgot_password",
+    "method": "POST",
+    "fields": {
+      "email": "<EMAIL>"
+    },
+    "headers": {
+      "User-Agent": "Mozilla/5.0"
+    },
     "captcha": false
   }
 ]
