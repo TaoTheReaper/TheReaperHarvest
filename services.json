@@ -1,42 +1,5 @@
 [
     {
-        "name": "reddit",
-        "url": "https://www.reddit.com/api/password.json",
-        "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
-        "captcha": false
-    },
-    {
-        "name": "spotify",
-        "url": "https://www.spotify.com/it/xhr/json/isEmailAvailable.php",
-        "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
-        "captcha": false
-    },
-    {
-        "name": "netflix",
-        "url": "https://www.netflix.com/LoginHelp",
-        "method": "POST",
-        "fields": {
-            "email": "<EMAIL>",
-            "reason": "forgotEmail"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
-        "captcha": false
-    },
-    {
         "name": "vinted",
         "url": "https://www.vinted.it/member/forgot_password",
         "method": "POST",
@@ -61,18 +24,6 @@
         "captcha": false
     },
     {
-        "name": "patreon",
-        "url": "https://www.patreon.com/forgot-password",
-        "method": "POST",
-        "fields": {
-            "email": "<EMAIL>"
-        },
-        "headers": {
-            "User-Agent": "Mozilla/5.0"
-        },
-        "captcha": false
-    },
-    {
         "name": "vsco",
         "url": "https://vsco.co/api/v3.0/auth/password-reset",
         "method": "POST",
@@ -85,14 +36,52 @@
         "captcha": false
     },
     {
-        "name": "instagram",
-        "url": "https://www.instagram.com/accounts/account_recovery_send_ajax/",
+        "name": "canva",
+        "url": "https://www.canva.com/api/v1/users/forgot-password",
         "method": "POST",
         "fields": {
-            "email_or_username": "<EMAIL>"
+            "email": "<EMAIL>"
         },
         "headers": {
             "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "dropbox",
+        "url": "https://www.dropbox.com/forgot",
+        "method": "POST",
+        "fields": {
+            "login_email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://www.dropbox.com/forgot"
+        },
+        "captcha": false
+    },
+    {
+        "name": "ebay",
+        "url": "https://signin.ebay.com/ws/eBayISAPI.dll?ForgotUserId",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "airbnb",
+        "url": "https://www.airbnb.com/forgot_password",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://www.airbnb.com/forgot_password"
         },
         "captcha": false
     }
