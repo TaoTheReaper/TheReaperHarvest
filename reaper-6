@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+import sys
+import json
+import asyncio
+import aiohttp
+import os
+from tqdm.asyncio import tqdm_asyncio
+
+COLORS = {
+    "green": "\033[1;38;2;0;255;0m",
+    "red": "\033[91m",
+    "yellow": "\033[93m",
+    "magenta": "\033[95m",
+    "reset": "\033[0m"
+}
+
+DEFAULT_JSON = "/usr/local/share/reaper/services.json"
+BANNER_FILE = "/usr/local/share/reaper/grim.txt"
+REMOTE_JSON_URL = "https://raw.githubusercontent.com/TaoTheReaper/TheReaperHarvest/main/services.json"
+CONCURRENT_REQUESTS = 10
+TIMEOUT = 10
+
+def print_banner():
+    try:
+        with open(BANNER_FILE, "r") as f:
+            banner = f.read()
+            print(COLORS["green"] + banner + COLORS["reset"])
+    except FileNotFoundError:
+        print(COLORS["green"] + "[!] grim.txt not found" + COLORS["reset"])
+
+async def fetch_remote_services():
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(REMOTE_JSON_URL, timeout=10) as resp:
+                if resp.status == 200:
+                    data = await resp.text()
+                    services = json.loads(data)
+                    if isinstance(services, list) and all('captcha' in s and not s['captcha'] for s in services):
+                        with open(DEFAULT_JSON, "w") as f:
+                            f.write(json.dumps(services, indent=4))
+                        print(COLORS["yellow"] + "[↑] Servizi aggiornati da GitHub" + COLORS["reset"])
+                    else:
+                        print(COLORS["red"] + "[✘] JSON non valido o contiene captcha." + COLORS["reset"])
+    except Exception as e:
+        print(COLORS["magenta"] + f"[✘] Errore aggiornamento: {str(e)}" + COLORS["reset"])
+
+async def send_request(session, service, email, semaphore):
+    async with semaphore:
+        try:
+            headers = service.get("headers", {})
+            if "User-Agent" not in headers:
+                headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+
+            data = {k: v.replace("<EMAIL>", email) for k, v in service["fields"].items()}
+            method = service["method"].upper()
+
+            if method == "POST":
+                async with session.post(service["url"], data=data, headers=headers, timeout=TIMEOUT) as resp:
+                    status = resp.status
+            else:
+                async with session.get(service["url"], params=data, headers=headers, timeout=TIMEOUT) as resp:
+                    status = resp.status
+
+            if status in [200, 202]:
+                return "✅ Possible"
+            elif status == 404:
+                return "❌ Not Found"
+            elif status == 403:
+                return "⚠ Forbidden"
+            elif status == 405:
+                return "⚠ Method Not Allowed"
+            elif status in [400, 401, 429, 503]:
+                return f"⚠ {status}"
+            else:
+                return f"⚠ {status}"
+
+        except Exception as e:
+            return f"💥 Error ({str(e)})"
+
+def colored_print(label, result):
+    if "✅" in result:
+        color = COLORS["green"]
+    elif "❌" in result:
+        color = COLORS["red"]
+    elif "⚠" in result:
+        color = COLORS["yellow"]
+    elif "💥" in result:
+        color = COLORS["magenta"]
+    else:
+        color = COLORS["reset"]
+    print(f"{label.ljust(16)}: {color}{result}{COLORS['reset']}")
+
+async def main():
+    args = sys.argv
+    if len(args) == 2:
+        path = DEFAULT_JSON
+        email = args[1]
+    elif len(args) == 3:
+        path = args[1]
+        email = args[2]
+    else:
+        print("Usage: reaper [services.json] email@example.com")
+        return
+
+    print_banner()
+    await fetch_remote_services()
+    print(f"\n📧 Checking: {email}\n")
+
+    with open(path, "r") as f:
+        services = json.load(f)
+
+    semaphore = asyncio.Semaphore(CONCURRENT_REQUESTS)
+    async with aiohttp.ClientSession() as session:
+        tasks = [send_request(session, s, email, semaphore) for s in services]
+        results = await tqdm_asyncio.gather(*tasks, desc="Scanning", ncols=70)
+
+    order = {"✅": 1, "⚠": 2, "❌": 3, "💥": 4}
+    sorted_results = sorted(zip([s["name"] for s in services], results), key=lambda x: order.get(x[1][0], 5))
+
+    for name, result in sorted_results:
+        colored_print(name, result)
+
+if __name__ == "__main__":
+    asyncio.run(main())
