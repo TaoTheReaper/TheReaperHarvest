@@ -9,7 +9,7 @@
         "headers": {
             "User-Agent": "Mozilla/5.0"
         },
-        "captcha": true
+        "captcha": false
     },
     {
         "name": "discord",
