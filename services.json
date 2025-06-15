@@ -21,6 +21,7 @@
         "method": "POST",
         "fields": { "email": "<EMAIL>", "reason": "forgotEmail" },
         "headers": { "User-Agent": "Mozilla/5.0" },
-        "captcha": false
+        "captcha": false,
+        "note": "Netflix always returns 200 — cannot verify existence with certainty."
     }
 ]
