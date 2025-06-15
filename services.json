@@ -46,5 +46,54 @@
             "User-Agent": "Mozilla/5.0"
         },
         "captcha": false
+    },
+    {
+        "name": "onlyfans",
+        "url": "https://onlyfans.com/api/v1/users/forgot_password",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "protonmail",
+        "url": "https://account.proton.me/api/auth/lost-password",
+        "method": "POST",
+        "fields": {
+            "username": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0",
+            "Content-Type": "application/json"
+        },
+        "captcha": false
+    },
+    {
+        "name": "aruba",
+        "url": "https://admin.aruba.it/resetpwd.aspx",
+        "method": "POST",
+        "fields": {
+            "LoginEmail": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
+    },
+    {
+        "name": "temu",
+        "url": "https://temu.com/api/v1/user/password-retrieve",
+        "method": "POST",
+        "fields": {
+            "email": "<EMAIL>"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
+        "captcha": false
     }
 ]
